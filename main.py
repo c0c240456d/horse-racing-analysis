@@ -1,6 +1,6 @@
-
 import streamlit as st
 from yougo import show_glossary
+from views.uprece import show_upcoming_races
 
 
 st.set_page_config(
@@ -156,14 +156,17 @@ elif st.session_state.page == "検索":
 
     if selected == "馬検索":
         st.text_input("馬名を入力")
+
     elif selected == "騎手検索":
         st.text_input("騎手名を入力")
+
     elif selected == "過去レース検索":
         st.date_input("開催日")
         st.selectbox(
             "競馬場",
             ["選択してください", "東京", "中山", "京都", "阪神"]
         )
+
     elif selected == "条件別検索":
         st.selectbox(
             "コース",
@@ -176,8 +179,7 @@ elif st.session_state.page == "検索":
 
 # 開催予定レース画面
 elif st.session_state.page == "開催予定レース":
-    st.title("📅 開催予定レース")
-    st.info("開催予定レースの表示機能は現在開発中です。")
+    show_upcoming_races()
 
 
 # 用語集画面
