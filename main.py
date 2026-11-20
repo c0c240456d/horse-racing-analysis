@@ -1,5 +1,7 @@
 
 import streamlit as st
+from yougo import show_glossary
+
 
 st.set_page_config(
     page_title="競馬データ分析ツール",
@@ -180,5 +182,4 @@ elif st.session_state.page == "開催予定レース":
 
 # 用語集画面
 elif st.session_state.page == "用語集":
-    st.title("📖 初心者向け用語集")
-    st.info("用語集は現在開発中です。")
+    show_glossary()
