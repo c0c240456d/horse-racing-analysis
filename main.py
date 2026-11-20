@@ -1,5 +1,6 @@
 import streamlit as st
 from yougo import show_glossary
+from pages.mainmenu import show_mainmenu
 from views.uprece import show_upcoming_races
 
 
@@ -67,71 +68,7 @@ with st.sidebar:
 
 # メインダッシュボード
 if st.session_state.page == "メインダッシュボード":
-    st.title("🐎 競馬データ分析ツール")
-    st.write("初心者でも簡単に競馬データを検索・比較できるアプリです。")
-
-    st.divider()
-    st.subheader("🔍 検索メニュー")
-
-    col1, col2 = st.columns(2)
-
-    with col1:
-        st.button(
-            "🐎 馬から検索",
-            use_container_width=True,
-            on_click=change_page,
-            args=("検索", "馬検索")
-        )
-        st.caption("馬の過去成績・勝率などを確認")
-
-        st.button(
-            "🏆 過去レースから検索",
-            use_container_width=True,
-            on_click=change_page,
-            args=("検索", "過去レース検索")
-        )
-        st.caption("過去のレース結果を確認")
-
-    with col2:
-        st.button(
-            "🏇 騎手から検索",
-            use_container_width=True,
-            on_click=change_page,
-            args=("検索", "騎手検索")
-        )
-        st.caption("騎手の勝率・条件別成績を確認")
-
-        st.button(
-            "📊 条件別検索",
-            use_container_width=True,
-            on_click=change_page,
-            args=("検索", "条件別検索")
-        )
-        st.caption("競馬場・距離・馬場状態などで検索")
-
-    st.divider()
-    st.subheader("📚 その他の機能")
-
-    col3, col4 = st.columns(2)
-
-    with col3:
-        st.button(
-            "📅 開催予定レース",
-            key="home_upcoming",
-            use_container_width=True,
-            on_click=change_page,
-            args=("開催予定レース",)
-        )
-
-    with col4:
-        st.button(
-            "📖 用語集",
-            key="home_terms",
-            use_container_width=True,
-            on_click=change_page,
-            args=("用語集",)
-        )
-
+    show_mainmenu()
 
 # 検索画面
 elif st.session_state.page == "検索":
